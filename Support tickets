@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Ticket</title>
+    <style>
+        #ticketForm {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="openTicketBtn">Open Ticket</button>
+    
+    <div id="ticketForm">
+        <h2>Create a Ticket</h2>
+        <form id="ticketCreationForm">
+            <label for="ticketTitle">Title:</label>
+            <input type="text" id="ticketTitle" name="ticketTitle" required><br><br>
+            <label for="ticketDescription">Description:</label>
+            <textarea id="ticketDescription" name="ticketDescription" required></textarea><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('openTicketBtn').addEventListener('click', function() {
+            document.getElementById('ticketForm').style.display = 'block';
+        });
+
+        document.getElementById('ticketCreationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('ticketTitle').value;
+            const description = document.getElementById('ticketDescription').value;
+            alert(`Ticket Created!\nTitle: ${title}\nDescription: ${description}`);
+            document.getElementById('ticketForm').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
