@@ -5,9 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Ticket</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
         #ticketForm {
             display: none;
             margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        #ticketCreationForm label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        #ticketCreationForm input,
+        #ticketCreationForm textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #ticketCreationForm button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #ticketCreationForm button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -34,8 +64,13 @@
             event.preventDefault();
             const title = document.getElementById('ticketTitle').value;
             const description = document.getElementById('ticketDescription').value;
-            alert(`Ticket Created!\nTitle: ${title}\nDescription: ${description}`);
-            document.getElementById('ticketForm').style.display = 'none';
+            if (title && description) {
+                alert(`Ticket Created!\nTitle: ${title}\nDescription: ${description}`);
+                document.getElementById('ticketForm').style.display = 'none';
+                document.getElementById('ticketCreationForm').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
         });
     </script>
 </body>
