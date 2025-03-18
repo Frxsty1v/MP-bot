@@ -1,0 +1,14 @@
+<article id="content">
+      <p>
+hi
+      </p>
+      <p>
+       Hi again 
+      </p>
+
+      <p>
+       
+      </p>
+    </article>
+
+<button onclick="showMore()">Show more</button>
